@@ -1,0 +1,22 @@
+.new-contact-form{
+    border-radius: 6px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    padding: 0 10px 0 10px;
+    margin-left: 40px;
+    color: red;
+}
+
+.new-contact-form-label {
+    margin-top: 14px;
+    color: black;
+}
+
+.new-contact-form-button{
+    width: 96px;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 20px auto;
+}
