@@ -1,22 +1,27 @@
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Home } from './pages/HomePage';
-import { Contacts } from './pages/ContactsPage';
-import { Login } from './pages/LoginPage';
-import { Register } from './pages/RegisterPage';
-import './App.css';
 import { SharedLayout } from './components/SharedLayot';
+import './App.css';
+
 
 function App() {
+
+  const HomePage = lazy(() => import('./pages/HomePage'));
+  const ContactsPage = lazy(() => import('./pages/ContactsPage'));
+  const LoginPage = lazy(() => import('./pages/LoginPage'));
+  const RegisterPage = lazy(() => import('./pages/RegisterPage'));
 
   return (
     <div>
       <SharedLayout>
+        <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="contacts" element={<Contacts />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-        </Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="contacts" element={<ContactsPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
+          </Routes>
+        </Suspense>
       </SharedLayout>
     </div>
   );
