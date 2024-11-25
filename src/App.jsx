@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { SharedLayout } from './components/SharedLayot';
 import './App.css';
@@ -14,14 +14,14 @@ function App() {
   return (
     <div>
       <SharedLayout>
-        <Suspense fallback={<div>Loading...</div>}>
+        {/* <Suspense fallback={<div>Loading...</div>}> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="contacts" element={<ContactsPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
           </Routes>
-        </Suspense>
+        {/* </Suspense> */}
       </SharedLayout>
     </div>
   );
