@@ -1,11 +1,21 @@
 import { useDispatch } from "react-redux";
+import { logIn } from "../redux/operations";
 
 export function LoginForm() {
     const dispatch = useDispatch();
     const handleSubmit = (e) => {
-        e.preventDefault()
-
+        e.preventDefault();
+        const form = e.target;
+        const { email, password } = form.elements;
+        dispatch(
+            logIn ({
+                email: email.value,
+                password: password.value,
+            })
+        );
+        form.reset();
     }
+
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
       <label>
