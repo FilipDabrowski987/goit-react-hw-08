@@ -17,9 +17,9 @@ function App() {
       <SharedLayout>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/contacts" element={<PrivateRoute redirectPath='/login' element={ContactsPage}/>} />
-          <Route path="/login" element={<RestrictedRoute redirectPath='/contacts' elementt={LoginPage}/>} />
-          <Route path="/register" element={<RestrictedRoute redirectPath='/contacts' element={RegisterPage}/>} />
+          <Route path="/contacts" element={<PrivateRoute redirectPath='/login' element={<ContactsPage/>}/>} />
+          <Route path="/login" element={<RestrictedRoute redirectPath='/contacts' element={<LoginPage/>}/>} />
+          <Route path="/register" element={<RestrictedRoute redirectPath='/contacts' element={<RegisterPage/>}/>} />
           </Routes>
       </SharedLayout>
     </div>

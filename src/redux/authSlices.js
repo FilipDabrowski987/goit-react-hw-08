@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const authSlices = createSlice({
     name: 'auth',
     initialState: {
-        isLogedIn: false,
+        isLoggedIn: false,
         token: null,
         user: {
             name: null,
@@ -13,7 +13,7 @@ const authSlices = createSlice({
     },
     
     extraReducers: (builder) => {}
-}   
+},
 )
 
 export default authSlices.reducer;
