@@ -1,8 +1,9 @@
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { SharedLayout } from './components/SharedLayot';
+import { RestrictedRoute } from './components/RestrictedRoute';
+import { PrivateRoute } from './components/PrivateRoute';
 import './App.css';
-
 
 function App() {
 
@@ -14,14 +15,12 @@ function App() {
   return (
     <div>
       <SharedLayout>
-        {/* <Suspense fallback={<div>Loading...</div>}> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="contacts" element={<ContactsPage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="register" element={<RegisterPage />} />
+          <Route path="/contacts" element={<PrivateRoute redirectPath='/login' element={ContactsPage}/>} />
+          <Route path="/login" element={<RestrictedRoute redirectPath='/contacts' elementt={LoginPage}/>} />
+          <Route path="/register" element={<RestrictedRoute redirectPath='/contacts' element={RegisterPage}/>} />
           </Routes>
-        {/* </Suspense> */}
       </SharedLayout>
     </div>
   );
