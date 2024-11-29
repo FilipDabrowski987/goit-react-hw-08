@@ -48,13 +48,6 @@ export const logOut = createAsyncThunk("auth/logOut",
 );
 
 
-
-
-
-
-
-
-
 export const fetchContacts = createAsyncThunk(
     "contacts/fetchAll",
     async (_, thunkAPI) => {
