@@ -3,17 +3,23 @@ import { logIn } from "../redux/operations";
 
 export function LoginForm() {
     const dispatch = useDispatch();
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
-        const { email, password } = form.elements;
-        dispatch(
-            logIn ({
-                email: email.value,
-                password: password.value,
-            })
-        );
+        const email = form.elements.email.value.trim();
+        const password = form.elements.password.value.trim(); 
+      
+      if (!email || !password) {
+        alert("Email and password are required.");
+        return;
+    }
+
+    try {
+        await dispatch(logIn({ email, password })).unwrap();
         form.reset();
+    } catch (error) {
+        alert("Login failed: " + error);
+      }
     }
 
   return (
