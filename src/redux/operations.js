@@ -50,26 +50,23 @@ export const logOut = createAsyncThunk(
 );
 
 export const refreshUser = createAsyncThunk(
-  'auth/refresh',
-  async (_, thunkAPI) => {
-    // Reading the token from the state via getState()
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+    'auth/refresh',
+    async (_, thunkAPI) => {
+        try {
+            const persistToken = thunkAPI.getState().auth.token;
 
-    if (persistedToken === null) {
-      // If there is no token, exit without performing any request
-      return thunkAPI.rejectWithValue('Unable to fetch user');
-    }
+            if (!persistToken) {
+                return thunkAPI.rejectWithValue('Brak tokena');
+            }
+    
+            setAuthHeader(persistToken);
 
-    try {
-      // If there is a token, add it to the HTTP header and perform the request
-      setAuthHeader(persistedToken);
-      const res = await axios.get('/users/me');
-      return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+            const response = await axios.get('/users/me');
+            return response.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        };
     }
-  }
 );
 
 export const fetchContacts = createAsyncThunk(
