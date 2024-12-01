@@ -7,7 +7,7 @@ import ContactList from '../components/ContactList/ContactList.jsx';
 import { DocumentTitle } from "../components/DocumentTitle.jsx";
 
 export default function ContactsPage() {
-    <DocumentTitle>Contacts</DocumentTitle>
+    
     const dispatch = useDispatch();
     const { items, isLoading, error } = useSelector((state) => state.contacts);
 
@@ -16,11 +16,14 @@ export default function ContactsPage() {
     }, [dispatch]);
 
     return (
-        <div><h1>Phonebook</h1>
+        <div>
+            <DocumentTitle>Contacts</DocumentTitle>
+            <h1>Phonebook</h1>
             <ContactForm />
             <SearchBox />
             {isLoading && <p>Loading...</p>}
             {error && <p>Error: {error}</p>}
-            <ContactList contacts={items} /></div>
+            <ContactList contacts={items} />
+        </div>
     ) 
 }
