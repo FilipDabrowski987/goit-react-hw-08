@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
+import './UserNav.css'
 
 const WelcomeMessage = () => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   return (
-    <div>
+    <div className='welcome-message'>
       {isLoggedIn ? (
         <h2>
           Witaj w aplikacji Książka Telefoniczna. Przejdź do swoich kontaktów.

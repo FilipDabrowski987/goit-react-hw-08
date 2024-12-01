@@ -23,7 +23,6 @@ const authSlices = createSlice({
                 state.user = action.payload.user;
             })
             
-            // .addCase(logIn.pending, (state, action) => { })
             .addCase(logIn.fulfilled, (state, action) => {
                 state.isLoggedIn = true;
                 state.token = action.payload.token;
@@ -39,7 +38,6 @@ const authSlices = createSlice({
                 };
             })
         
-            // .addCase(logOut.pending, (state, action) => { })
             .addCase(logOut.fulfilled, (state) => {
                 state.isLoggedIn = false;
                 state.token = null;

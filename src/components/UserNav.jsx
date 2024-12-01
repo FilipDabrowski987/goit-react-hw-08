@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../redux/operations";
 import { selectUser } from "../redux/selectors";
+import './UserNav.css'
 
 export function UserNav() {
     const dispatch = useDispatch();
@@ -9,9 +10,9 @@ export function UserNav() {
         dispatch(logOut());
     }
     return (
-        <div>
-            <p>Witaj, {name}</p>
-            <button onClick={handleLoggOut}>Logout</button>
+        <div className="user-nav-bar">
+            <p>Witaj, <span className="user-name-span">{name}</span></p>
+            <button className="log-out-button" onClick={handleLoggOut}>Logout</button>
         </div>
     );
 }

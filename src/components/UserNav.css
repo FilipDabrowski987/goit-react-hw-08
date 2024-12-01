@@ -1,0 +1,25 @@
+.user-nav-bar {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    border-bottom: 2px solid lightgrey;
+    width: 300px;
+}
+
+.user-name-span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.log-out-button {
+    margin-left: 120px;
+    height: 24px;
+    display: flex;
+}
+
+.welcome-message {  
+    width: 300px;
+    margin-left: 40px;
+    display: flex;
+    justify-content: center;
+}
