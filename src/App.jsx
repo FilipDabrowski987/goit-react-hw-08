@@ -1,6 +1,6 @@
 import { lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { SharedLayout } from './components/SharedLayot';
+import { SharedLayout } from './components/SharedLayuot';
 import { RestrictedRoute } from './components/RestrictedRoute';
 import { PrivateRoute } from './components/PrivateRoute';
 import './App.css';

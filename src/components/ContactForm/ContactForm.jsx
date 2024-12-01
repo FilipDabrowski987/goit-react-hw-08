@@ -1,11 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 import { nanoid } from 'nanoid';
 import { addContacts } from '../../redux/operations';
 import './ContactForm.css'
-
-// import { addContact } from '../redux/contactsSlices';
 
 const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -21,9 +19,19 @@ const validationSchema = Yup.object().shape({
 });
 
 const ContactForm = () => {
-const dispatch = useDispatch();
+    const dispatch = useDispatch();
+    const contacts = useSelector((state) => state.contacts.items);
   
     const handleSubmit = (values, actions) => {
+        const contactExists = contacts.some(
+            (contact) => contact.name.toLowerCase() === values.name.toLowerCase()
+        );
+
+        if (contactExists) {
+            alert(`Kontakt o imieniu "${values.name}" już istnieje!`);
+            return;
+        }
+
         dispatch(addContacts({
             id: nanoid(),
             name: values.name,
