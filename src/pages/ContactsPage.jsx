@@ -4,8 +4,10 @@ import { fetchContacts } from "../redux/operations"; // Upewnij się, że ście�
 import ContactForm from '../components/ContactForm/ContactForm.jsx';
 import SearchBox from '../components/SearchBox/SearchBox.jsx';
 import ContactList from '../components/ContactList/ContactList.jsx';
+import { DocumentTitle } from "../components/DocumentTitle.jsx";
 
 export default function ContactsPage() {
+    <DocumentTitle>Contacts</DocumentTitle>
     const dispatch = useDispatch();
     const { items, isLoading, error } = useSelector((state) => state.contacts);
 

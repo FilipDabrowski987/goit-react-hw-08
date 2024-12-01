@@ -6,15 +6,19 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx'
 import './index.css'
 import { PersistGate } from 'redux-persist/integration/react';
+import { HelmetProvider } from 'react-helmet-async';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-  <StrictMode>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <App />
-        </PersistGate>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <HelmetProvider>
+          <StrictMode>
+            <App />
+          </StrictMode>
+        </HelmetProvider>
+      </PersistGate>
     </Provider>
-    </StrictMode>
+    
   </BrowserRouter>,
 )
