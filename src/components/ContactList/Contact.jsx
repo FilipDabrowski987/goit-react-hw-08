@@ -2,7 +2,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
 import './Contact.css'
 
-const Contact = ({ name, phone, deleteContacts }) => {
+const Contact = ({ name, number, deleteContacts }) => {
     return (
         <div className="contact-card">
             <div >
@@ -10,7 +10,7 @@ const Contact = ({ name, phone, deleteContacts }) => {
                 <p><IoPerson/>  {name}</p>
                 </div>
                 <div>
-                <p><FaPhoneAlt/>  {phone}</p>
+                <p><FaPhoneAlt/>  {number}</p>
                 </div>
             </div>
             <button className="delete-contacts-button" onClick={deleteContacts}>Delete</button>

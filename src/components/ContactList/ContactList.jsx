@@ -18,7 +18,7 @@ const ContactList = () => {
                 <li className='contact-item' key={contact.id}>
                     <Contact
                         name={contact.name}
-                        phone={contact.phone}
+                        number={contact.number}
                         id={contact.id}
                         deleteContacts={() => dispatch(deleteContacts(contact.id))}
                     />
